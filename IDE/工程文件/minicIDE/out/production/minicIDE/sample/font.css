@@ -1,0 +1,4 @@
+.keyword { -fx-fill: firebrick; }
+.comment { -fx-fill: green; }
+.number { -fx-fill: blue; }
+.find {-fx-fill: peru; font-weight:bold; -fx-font-style: italic}

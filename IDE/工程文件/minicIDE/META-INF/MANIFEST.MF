@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: richtextfx-fat-0.10.3.jar
+Main-Class: sample.Main
+

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import org.fxmisc.richtext.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="667.0" prefWidth="924.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller" stylesheets="/sample/font.css">
+    <top>
+        <GridPane prefHeight="71.0" prefWidth="924.0" BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <GridPane>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <MenuBar prefHeight="36.0" prefWidth="194.0">
+                            <menus>
+                                <Menu mnemonicParsing="false" text="文件">
+                                    <items>
+                                        <MenuItem fx:id="newButton" mnemonicParsing="false" onAction="#newFile" text="新建..." />
+                                        <MenuItem fx:id="openButton" mnemonicParsing="false" onAction="#openFile" text="打开..." />
+                                        <MenuItem fx:id="saveButton" mnemonicParsing="false" onAction="#saveFile" text="保存" />
+                                        <MenuItem fx:id="saveAsButton" mnemonicParsing="false" onAction="#saveFileAs" text="另存为..." />
+                                    </items>
+                                </Menu>
+                                <Menu mnemonicParsing="false" text="帮助">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" onAction="#aboutMiniC" text="关于英英英IDE" />
+                                        <MenuItem mnemonicParsing="false" onAction="#aboutUs" text="关于我们" />
+                                    </items>
+                                </Menu>
+                            </menus>
+                        </MenuBar>
+                        <ToolBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1">
+                            <items>
+                                <Text fx:id="status" strokeType="OUTSIDE" strokeWidth="0.0" text="就绪" />
+                            </items>
+                        </ToolBar>
+                    </children>
+                </GridPane>
+                <ToolBar prefHeight="148.0" prefWidth="924.0" GridPane.rowIndex="1">
+                    <items>
+                        <Button fx:id="runButton" mnemonicParsing="false" onAction="#runCode" text="运行" />
+                        <TextField fx:id="word" onKeyPressed="#changeFindingWord"/>
+                        <Button fx:id="clearFind" mnemonicParsing="=false" onAction="#clearFindField" text="清除" />
+                        <Button fx:id="find" mnemonicParsing="false" onAction="#findWord" text="查找全部" />
+                        <Button fx:id="next" mnemonicParsing="false" onAction="#nextFind" text="下一个" />
+                        <Button fx:id="before" mnemonicParsing="false" onAction="#beforeFind" text="上一个" />
+                        <Button fx:id="replace" mnemonicParsing="false" onAction="#replaceWord" text="替换选中" />
+                        <Text fx:id="replaceLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="替换为：" />
+                        <TextField fx:id="wordForReplace" />
+                    </items>
+                </ToolBar>
+            </children>
+        </GridPane>
+    </top>
+   <center>
+      <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+        <items>
+            <SplitPane prefHeight="160.0" prefWidth="200.0">
+               <items>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <left>
+                        <TreeView fx:id="treeView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                     </left>
+                     <center>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <top>
+                              <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                <items>
+                                  <Button fx:id="file0" mnemonicParsing="false" onAction="#file0Action" text="未命名" visible="false">
+                                       <graphic>
+                                          <Button mnemonicParsing="false" onAction="#x0Action" text="X" fx:id="x0" />
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="file1" mnemonicParsing="false" onAction="#file1Action" text="Button" visible="false">
+                                       <graphic>
+                                          <Button mnemonicParsing="false" onAction="#x1Action" text="X" fx:id="x1" />
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="file2" mnemonicParsing="false" onAction="#file2Action" text="Button" visible="false">
+                                       <graphic>
+                                          <Button mnemonicParsing="false" onAction="#x2Action" text="X" visible="false" fx:id="x2" />
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="file3" mnemonicParsing="false" onAction="#file3Action" text="Button" visible="false">
+                                       <graphic>
+                                          <Button mnemonicParsing="false" onAction="#x3Action" text="X" fx:id="x3" />
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="file4" mnemonicParsing="false" onAction="#file4Action" text="Button" visible="false">
+                                       <graphic>
+                                          <Button mnemonicParsing="false" onAction="#x4Action" text="X" fx:id="x4" />
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="file5" mnemonicParsing="false" onAction="#file5Action" text="Button" visible="false">
+                                       <graphic>
+                                          <Button mnemonicParsing="false" onAction="#x5Action" text="X" fx:id="x5" />
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="file6" mnemonicParsing="false" onAction="#file6Action" text="Button" visible="false">
+                                       <graphic>
+                                          <Button mnemonicParsing="false" onAction="#x6Action" text="X" fx:id="x6" />
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="file7" mnemonicParsing="false" onAction="#file7Action" text="Button" visible="false">
+                                       <graphic>
+                                          <Button mnemonicParsing="false" onAction="#x7Action" text="X" fx:id="x7" />
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="file8" mnemonicParsing="false" onAction="#file8Action" text="Button" visible="false">
+                                       <graphic>
+                                          <Button mnemonicParsing="false" onAction="#x8Action" text="X" fx:id="x8" />
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="file9" mnemonicParsing="false" onAction="#file9Action" text="Button" visible="false">
+                                       <graphic>
+                                          <Button mnemonicParsing="false" onAction="#x9Action" text="X" fx:id="x9" />
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="file10" mnemonicParsing="false" onAction="#file10Action" text="Button" visible="false">
+                                       <graphic>
+                                          <Button mnemonicParsing="false" onAction="#x10Action" text="X" fx:id="x10" />
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="file11" mnemonicParsing="false" onAction="#file11Action" text="Button" visible="false">
+                                       <graphic>
+                                          <Button mnemonicParsing="false" onAction="#x11Action" text="X" fx:id="x11" />
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="file12" mnemonicParsing="false" onAction="#file12Action" text="Button" visible="false">
+                                       <graphic>
+                                          <Button mnemonicParsing="false" onAction="#x12Action" text="X" fx:id="x12" />
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="file13" mnemonicParsing="false" onAction="#file13Action" text="Button" visible="false">
+                                       <graphic>
+                                          <Button mnemonicParsing="false" onAction="#x13Action" text="X" fx:id="x13" />
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="file14" mnemonicParsing="false" onAction="#file14Action" text="Button" visible="false">
+                                       <graphic>
+                                          <Button mnemonicParsing="false" onAction="#x14Action" text="X" fx:id="x14" />
+                                       </graphic>
+                                    </Button>
+                                </items>
+                              </ToolBar>
+                           </top>
+                           <center>
+                              <CodeArea fx:id="codeTextArea" onKeyPressed="#typingCode" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                           </center>
+                        </BorderPane>
+                     </center>
+                  </BorderPane>
+               </items>
+            </SplitPane>
+            <TitledPane animated="false" text="调试信息">
+               <content>
+                  <TextArea fx:id="console" editable="false" prefHeight="200.0" prefWidth="200.0" />
+               </content>
+            </TitledPane>
+        </items>
+      </SplitPane>
+   </center>
+</BorderPane>
